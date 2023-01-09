@@ -78,7 +78,7 @@ mqttClient.on('connect', function () {
 });
 
 mqttClient.on('message', function (topic, message) {
-    let value = message.toString();
+    let value = String.fromCharCode([11]) + message.toString();
     console.log('[' + value + '] --> in');
     serial.write(value + '\n');
 });
